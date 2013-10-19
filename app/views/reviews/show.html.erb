@@ -1,1 +1,6 @@
 <%= render review %>
+
+<h2>I was there!</h2>
+<%= image_tag review.ticket.stub(:medium) %>
+
+<p><%= link_to 'Edit Review', edit_review_path(review) %></p>

@@ -1,0 +1,28 @@
+<% band.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for band, html: { multipart: true } do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= image_tag band.avatar.url(:thumb) %><br />
+    <%= f.label :avatar, 'Change Avatar' %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div>
+    <%= f.label :twitter, 'Twitter Account Name' %>
+    <%= f.text_field :twitter %>
+  </div>
+
+  <div>
+    <%= f.label :web, 'Website' %>
+    <%= f.text_field :web %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

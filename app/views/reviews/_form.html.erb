@@ -8,10 +8,45 @@
     <%= f.text_field :title %>
   </div>
 
+  <%= fields_for band do |b| %>
+    <div>
+      <%= b.label :name, 'Band' %>
+      <%= b.text_field :name %>
+    </div>
+  <% end %>
+
   <div>
     <%= f.label :venue %>
     <%= f.text_field :venue %>
   </div>
+
+  <%= f.fields_for :ticket do |t| %>
+    <div>
+      <%= t.label :event_code %>
+      <%= t.text_field :event_code %>
+    </div>
+
+    <div>
+      <%= t.label :section %>
+      <%= t.text_field :section %>
+    </div>
+
+    <div>
+      <%= t.label :row %>
+      <%= t.text_field :row %>
+    </div>
+
+    <div>
+      <%= t.label :seat %>
+      <%= t.text_field :seat %>
+    </div>
+
+    <div>
+      <%= image_tag review.ticket.stub.url(:thumb) %><br />
+      <%= t.label :stub, 'Change Stub' %>
+      <%= t.file_field :stub %>
+    </div>
+  <% end %>
 
   <div>
     <%= f.label :played_at, 'Day of the Concert' %>

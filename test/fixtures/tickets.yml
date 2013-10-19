@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  review_id: 
+  event_code: MyString
+  section: MyString
+  row: MyString
+  seat: MyString
+  stub: 
+
+two:
+  user_id: 
+  review_id: 
+  event_code: MyString
+  section: MyString
+  row: MyString
+  seat: MyString
+  stub: 
