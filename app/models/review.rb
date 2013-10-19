@@ -5,6 +5,7 @@ class Review < ActiveRecord::Base
   validates :content, presence: true
   validates :rating, inclusion: { in: 1..5 }
   validates :user, presence: true
+  validates :played_at, presence: true
 
   scope :latest, -> { order('id DESC') }
 end
