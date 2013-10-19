@@ -5,7 +5,8 @@
   </div>
 
   <div>
-    <%= f.label :avatar %>
+    <%= image_tag user.avatar.url(:thumb) %><br />
+    <%= f.label :avatar, 'Change Avatar' %>
     <%= f.file_field :avatar %>
   </div>
 
