@@ -1,10 +1,8 @@
 <%= render user %>
 
-<p><%= link_to 'Edit Profile', edit_user_path(user) %>
+<p><%= link_to 'Edit Profile', edit_user_path(user) %> | <%= link_to 'Write a Review', new_review_path(user_id: user.id) %></p>
 
 <h1>Reviews</h1>
-
-<p><%= link_to 'Write a Review', new_review_path(user_id: user.id) %>
 
 <%= render reviews %>
 

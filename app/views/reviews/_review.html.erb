@@ -1,4 +1,8 @@
-<h1><%= review.title %></h1>
-<p><%= truncate(review.content, length: 100, separator: ' ') { h(' ') + link_to('continued', review) } %>
-  <span class='rating-<%= review.rating %>'><%= review.rating %> Stars</span>
-</p>
+<div class="review">
+
+  <%= image_tag review.band.avatar.url(:thumb) %><br />
+  <span class="stars" data-number="<%= review.rating %>"><%= review.rating %> Stars</span>
+
+  <h1><%= link_to truncate(review.title, length: 50, separator: ' '), review %></h1>
+
+</div>

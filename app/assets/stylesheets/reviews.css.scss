@@ -1,3 +1,29 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.review {
+  width: 150px;
+  height: 200px;
+  background-color: #111;
+  color: #999;
+  border: 4px solid #444;
+  padding: 10px 5px 5px 5px;
+  float: left;
+  text-align: center;
+  margin: 5px;
+
+  h1 {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: #999;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #ceaa6c;
+  }
+}

@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Noto Serif', serif;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

@@ -4,7 +4,7 @@
 
 <%= paragraphs(review.content) %>
 
-<div class='rating-<%= review.rating %>'><%= review.rating %> Stars</div>
+<div class="stars" data-number="<%= review.rating %>"><%= review.rating %> Stars</div>
 
 <% if review.ticket.stub.present? %>
 

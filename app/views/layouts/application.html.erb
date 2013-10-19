@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+
   <title>Encore</title>
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
 
 <%= yield %>
+
+  <script>
+    $.each($('.stars'), function(index, object) {
+      var elm = $(object);
+      elm.empty();
+      elm.raty({
+        readOnly: true,
+        score: elm.data('number'),
+        path: '/assets'
+      });
+    });
+  </script>
 
 </body>
 </html>
