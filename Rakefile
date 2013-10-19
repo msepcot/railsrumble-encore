@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-R13Team188::Application.load_tasks
+Encore::Application.load_tasks
