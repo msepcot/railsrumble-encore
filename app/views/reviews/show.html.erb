@@ -1,6 +1,16 @@
-<%= render review %>
+<h1><%= review.title %></h1>
+<h2><%= review.venue %> (<%= review.played_at.to_s(:long) %>)</h2>
+<h3>by <%= review.user.screen_name %></h3>
+
+<p><%= review.content %></p>
+
+<div class='rating-<%= review.rating %>'><%= review.rating %> Stars</div>
+
+<% if review.ticket.stub.present? %>
 
 <h2>I was there!</h2>
 <%= image_tag review.ticket.stub(:medium) %>
+
+<% end %>
 
 <p><%= link_to 'Edit Review', edit_review_path(review) %></p>
