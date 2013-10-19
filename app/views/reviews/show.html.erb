@@ -2,7 +2,7 @@
 <h2><%= review.venue %> (<%= review.played_at.to_s(:long) %>)</h2>
 <h3>by <%= review.user.screen_name %></h3>
 
-<p><%= review.content %></p>
+<%= paragraphs(review.content) %>
 
 <div class='rating-<%= review.rating %>'><%= review.rating %> Stars</div>
 
