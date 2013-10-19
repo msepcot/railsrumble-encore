@@ -6,12 +6,12 @@ class WelcomeController < ApplicationController
 private
 
   def users
-    @users ||= User.latest.page(params[:page])
+    @users ||= User.latest.page(params[:page]).per(5)
   end
   helper_method :users
 
   def reviews
-    @reviews ||= Review.latest.page(params[:page])
+    @reviews ||= Review.latest.page(params[:page]).per(5)
   end
   helper_method :reviews
 
