@@ -1,0 +1,29 @@
+<!-- => Review(id: integer, title: string, content: string, rating: integer, user_id: integer, created_at: datetime, updated_at: datetime) -->
+
+<% review.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for review do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label :rating %>
+    <%= f.select :rating, 1..5, include_blank: true %>
+  </div>
+
+  <div>
+    <%= f.label :user_id %>
+    <%= f.select :user_id, User.all.map {|u| [u.screen_name, u.id] }, include_blank: true %>
+  </div>
+
+  <%= f.submit 'Save' %>
+<% end %>
