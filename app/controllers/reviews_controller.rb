@@ -29,7 +29,7 @@ private
   end
 
   def review
-    @review ||= params[:id].present? ? Review.find(params[:id]) : Review.new
+    @review ||= params[:id].present? ? Review.find(params[:id]) : Review.new(params.permit(:user_id))
   end
   helper_method :review
 

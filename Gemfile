@@ -16,6 +16,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'thin'
+end
+
 group :production do
   gem 'mysql2' # If using mysql in development, this can be outside the production group.
   gem 'therubyracer'

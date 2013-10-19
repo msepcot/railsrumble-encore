@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:screen_name))
+    @user = User.new(params.require(:user).permit(:screen_name, :avatar))
 
     render(@user.save ? :show : :new)
   end
@@ -24,8 +24,6 @@ class UsersController < ApplicationController
 private
 
   def reviews
-    return [] unless user
-
     user.reviews.page(params[:page]).per(2)
   end
   helper_method :reviews
