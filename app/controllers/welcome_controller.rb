@@ -11,7 +11,7 @@ private
   helper_method :users
 
   def reviews
-    @reviews ||= Review.latest.page(params[:page]).per(5)
+    @reviews ||= Review.latest.page(params[:page]).per(8)
   end
   helper_method :reviews
 
