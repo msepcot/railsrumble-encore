@@ -1,10 +1,6 @@
-<% user.errors.full_messages.each do |msg| %>
-  <p><%= msg %></p>
-<% end %>
-
 <%= form_for user, html: { multipart: true } do |f| %>
 
-  <%= f.label :screen_name %><br />
+  <%= f.label :screen_name %> <span class="error"><%= user.errors[:screen_name].join(', ') %></span><br />
   <%= f.text_field :screen_name %><br /><br />
   <%= image_tag user.avatar.url(:thumb) %><br />
   <%= f.label :avatar, 'Change Avatar' %><br />

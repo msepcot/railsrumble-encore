@@ -1,13 +1,9 @@
-<% band.errors.full_messages.each do |msg| %>
-  <p><%= msg %></p>
-<% end %>
-
 <%= form_for band, html: { multipart: true } do |f| %>
 
   <table>
     <tr>
       <td>
-        <%= f.label :name %><br />
+        <%= f.label :name %> <span class="error"><%= band.errors[:name].join(', ') %></span><br />
         <%= f.text_field :name %><br />
         <%= f.label :twitter, 'Twitter Account Name' %><br />
         <%= f.text_field :twitter %><br />
