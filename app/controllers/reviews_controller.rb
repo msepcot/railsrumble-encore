@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.band = Band.where(name: params[:band][:name].squish).first_or_initialize
 
-    @review.tap {|r| r.valid?; puts r.errors.inspect }.save ? redirect_to(@review) : render(:new)
+    @review.save ? redirect_to(@review) : render(:new)
   end
 
   def edit
@@ -48,6 +48,11 @@ private
     @band = review.band || Band.new
   end
   helper_method :band
+
+  def media
+    @media ||= review.media
+  end
+  helper_method :media
 
   def reviews
     @reviews ||= Review.latest.page(params[:page])

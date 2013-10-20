@@ -1,3 +1,7 @@
+<% if review.ticket.stub.present? %>
+<%= link_to image_tag(review.ticket.stub(:medium), class: 'stub'), review.ticket.stub(:original), class: 'fancybox' %>
+<% end %>
+
 <h1><%= review.title %></h1>
 <h2><%= review.venue %> (<%= review.played_at.to_s(:long) %>)</h2>
 <h3>by <%= review.user.screen_name %></h3>
@@ -6,8 +10,11 @@
 
 <div class="stars" data-number="<%= review.rating %>"><%= review.rating %> Stars</div>
 
-<% if review.ticket.stub.present? %>
-<p><%= link_to image_tag(review.ticket.stub(:medium), class: 'stub'), review.ticket.stub(:original), class: 'fancybox' %></p>
+<% if media.any? %>
+<h2>Associated Media</h2>
+
+<%= render media %>
+
 <% end %>
 
-<p><%= link_to 'Edit Review', edit_review_path(review) %></p>
+<p><%= link_to 'Edit Review', edit_review_path(review) %> | <%= link_to 'Attach Media', new_media_path(source_id: review.id, source_type: 'Review') %></p>

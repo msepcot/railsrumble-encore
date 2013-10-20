@@ -1,0 +1,4 @@
+<div class="media">
+  <%= link_to image_tag(media.image(:thumb)), media.lightbox_link, class: "fancybox#{'.iframe youtube' if media.youtube?}", rel: 'media' %>
+  <p><%= link_to_if((media.link && !media.youtube?), media.title, media.link) %></p>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019175010) do
+ActiveRecord::Schema.define(version: 20131020183907) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 20131019175010) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
+
+  create_table "media", force: true do |t|
+    t.integer  "source_id"
+    t.string   "source_type"
+    t.string   "title"
+    t.string   "link"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "media", ["source_id", "source_type"], name: "index_media_on_source_id_and_source_type"
 
   create_table "reviews", force: true do |t|
     t.string   "title"

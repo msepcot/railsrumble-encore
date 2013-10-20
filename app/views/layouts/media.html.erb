@@ -4,7 +4,7 @@
   <link href='http://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
-  <title>Encore! <%= content_for(:title) || review.try(:title) || 'Concerts' %></title>
+  <title>Encore! <%= content_for(:title) || media.try(:title) || 'Media' %></title>
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>

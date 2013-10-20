@@ -2,6 +2,7 @@ class Review < ActiveRecord::Base
   belongs_to :band
   belongs_to :user
   has_one :ticket
+  has_many :media, as: :source, class_name: '::Media'
 
   validates :title, presence: true
   validates :content, presence: true

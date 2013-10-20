@@ -5,6 +5,13 @@ Encore::Application.routes.draw do
   resources :reviews, path: 'concerts'
   resources :users
 
+  get     'media'           => 'media#index', as: 'media_index'
+  post    'media'           => 'media#create'
+  get     'media/new'       => 'media#new',   as: 'new_media'
+  get     'media/:id/edit'  => 'media#edit',  as: 'edit_media'
+  patch   'media/:id'       => 'media#update'
+  put     'media/:id'       => 'media#update'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,23 @@
+<%= form_for media do |f| %>
+
+  <%= f.hidden_field :source_id %>
+  <%= f.hidden_field :source_type %>
+
+  <%= f.label :title %> <span class="error"><%= media.errors[:title].join(', ') %></span><br />
+  <%= f.text_field :title %><br />
+
+  <%= f.label :link %> <span class="error"><%= media.errors[:link].join(', ') %></span><br />
+  <%= f.text_field :link %> (Reference or YouTube Embed Links)<br />
+
+  <table>
+    <tr>
+      <td><%= image_tag media.image.url(:thumb) %></td>
+      <td>&nbsp;</td>
+      <td><%= f.label :image, 'Change Image' %> <span class="error"><%= media.errors[:image].join(', ') %></span><br />
+          <%= f.file_field :image %>
+      </td>
+    </tr>
+  </table>
+
+  <%= f.submit %>
+<% end %>
