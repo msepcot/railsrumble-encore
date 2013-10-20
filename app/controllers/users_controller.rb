@@ -39,7 +39,7 @@ private
   helper_method :user
 
   def users
-    @users ||= User.page(params[:page])
+    @users ||= User.latest.page(params[:page])
   end
   helper_method :users
 

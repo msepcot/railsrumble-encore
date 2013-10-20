@@ -40,7 +40,7 @@ private
   helper_method :band
 
   def bands
-    @bands ||= Band.page(params[:page])
+    @bands ||= Band.latest.page(params[:page])
   end
   helper_method :bands
 

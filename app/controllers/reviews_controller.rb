@@ -50,7 +50,7 @@ private
   helper_method :band
 
   def reviews
-    @reviews ||= Review.page(params[:page])
+    @reviews ||= Review.latest.page(params[:page])
   end
   helper_method :reviews
 
