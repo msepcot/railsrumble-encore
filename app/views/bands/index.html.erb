@@ -1,9 +1,7 @@
 <p><%= link_to 'Create Band', new_band_path %></p>
 
-<ul>
 <% bands.each do |band| %>
-  <li><%= link_to band.name, band %>
+  <%= render band %>
 <% end %>
-</ul>
 
 <%= paginate bands %>

@@ -1,7 +1,6 @@
-<%= image_tag band.avatar.url(:thumb) %>
-
-<h1><%= band.name %></h1>
-
-<%= twitter_link(band) %>
-
-<%= website_link(band) %>
+<div class="band">
+  <%= link_to_unless_current image_tag(band.avatar.url(:thumb)), band %>
+  <h1><%= link_to_unless_current band.name, band %></h1>
+  <p><%= [twitter_link(band), website_link(band)].compact.join(' | ').html_safe %></p>
+  <p><%= link_to_unless_current "#{band.reviews.count} #{'review'.pluralize(band.reviews.count)}", band %></p>
+</div>

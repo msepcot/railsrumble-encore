@@ -1,3 +1,5 @@
-<%= image_tag user.avatar.url(:thumb) %>
-
-<h1><%= user.screen_name %></h1>
+<div class="user">
+  <%= link_to_unless_current image_tag(user.avatar.url(:thumb)), user %><br />
+  <h1><%= link_to_unless_current user.screen_name, user %></h1>
+  <p><%= user.reviews.count %> <%= 'review'.pluralize(user.reviews.count) %></p>
+</div>
