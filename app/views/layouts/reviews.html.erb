@@ -4,7 +4,7 @@
   <link href='http://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
-  <title>Encore! A personal journal of live events.</title>
+  <title>Encore! <%= content_for(:title) || review.try(:title) || 'Concerts' %></title>
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -14,7 +14,13 @@
 </head>
 <body>
 
+  <div id="container">
+
+    <%= link_to image_tag('encore-plain.png', alt: 'Encore! A personal journal of live events.', id: 'welcome-logo'), root_url %>
+
 <%= yield %>
+
+  </div>
 
   <script>
     $.fn.raty.defaults.hints = ['bad', 'poor', 'okay', 'good', 'great'];

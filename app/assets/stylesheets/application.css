@@ -27,3 +27,8 @@ h1, h2, h3 {
   clear: both;
   visibility: hidden;
 }
+
+div#container {
+  width: 960px;
+  margin: 0 auto;
+}

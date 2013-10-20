@@ -16,11 +16,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    render :new
   end
 
   def update
-    user.update_attributes(user_params) ? redirect_to(user) : render(:new)
+    user.update_attributes(user_params) ? redirect_to(user) : render(:edit)
   end
 
 private

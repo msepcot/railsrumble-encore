@@ -20,7 +20,7 @@ class BandsController < ApplicationController
   end
 
   def update
-    band.update_attributes(band_params) ? redirect_to(band) : render(:new)
+    band.update_attributes(band_params) ? redirect_to(band) : render(:edit)
   end
 
 private

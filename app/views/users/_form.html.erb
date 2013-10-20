@@ -1,0 +1,18 @@
+<% user.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for user, html: { multipart: true } do |f| %>
+  <div>
+    <%= f.label :screen_name %>
+    <%= f.text_field :screen_name %>
+  </div>
+
+  <div>
+    <%= image_tag user.avatar.url(:thumb) %><br />
+    <%= f.label :avatar, 'Change Avatar' %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
