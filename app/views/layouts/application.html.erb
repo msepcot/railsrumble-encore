@@ -17,6 +17,7 @@
 <%= yield %>
 
   <script>
+    $.fn.raty.defaults.hints = ['bad', 'poor', 'okay', 'good', 'great'];
     $.each($('.stars'), function(index, object) {
       var elm = $(object);
       elm.empty();

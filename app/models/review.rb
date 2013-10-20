@@ -11,5 +11,8 @@ class Review < ActiveRecord::Base
 
   accepts_nested_attributes_for :ticket
 
+  validates_associated :ticket
+  validates_associated :band
+
   scope :latest, -> { order('id DESC') }
 end
