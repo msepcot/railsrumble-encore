@@ -15,7 +15,7 @@
 <body>
 
   <div id="container">
-
+    <p><%= link_to 'Reviews', reviews_path %> | <%= link_to 'Users', users_path %> | <%= link_to 'Bands', bands_path %></p>
     <%= link_to image_tag('encore-plain.png', alt: 'Encore! A personal journal of live events.', id: 'welcome-logo'), root_url %>
 
 <%= yield %>
