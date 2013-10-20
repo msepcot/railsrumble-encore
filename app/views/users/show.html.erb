@@ -1,3 +1,5 @@
+<h1><%= user.screen_name %></h1>
+
 <%= render user %>
 
 <p><%= link_to 'Edit Profile', edit_user_path(user) %> | <%= link_to 'Write a Review', new_review_path(user_id: user.id) %></p>

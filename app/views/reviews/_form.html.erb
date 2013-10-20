@@ -3,70 +3,67 @@
 <% end %>
 
 <%= form_for review do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+
+    <%= f.label :title %><br />
+    <%= f.text_field :title %><br />
 
   <%= fields_for band do |b| %>
-    <div>
-      <%= b.label :name, 'Band' %>
-      <%= b.text_field :name %>
-    </div>
+    <%= b.label :name, 'Band' %><br />
+    <%= b.text_field :name %><br />
   <% end %>
 
-  <div>
-    <%= f.label :venue %>
-    <%= f.text_field :venue %>
-  </div>
+  <%= f.label :venue %><br />
+  <%= f.text_field :venue %><br />
+
+  <%= f.label :played_at, 'Day of the Concert' %><br />
+  <%= f.date_field :played_at %><br />
+
+  <%= f.label :content %><br />
+  <%= f.text_area :content %><br />
+
+  <%= f.label :rating %><br />
+  <%= f.select :rating, 1..5, include_blank: true %><br />
+
+  <%= f.label :user_id %><br />
+  <%= f.select :user_id, User.all.map {|u| [u.screen_name, u.id] }, include_blank: true %><br /><br />
 
   <%= f.fields_for :ticket do |t| %>
-    <div>
-      <%= t.label :event_code %>
-      <%= t.text_field :event_code %>
-    </div>
+    <fieldset>
+      <legend>Ticket Stub</legend>
 
-    <div>
-      <%= t.label :section %>
-      <%= t.text_field :section %>
-    </div>
+      <table>
+        <tr>
+          <td><%= image_tag review.ticket.stub.url(:thumb) %></td>
+          <td>&nbsp;</td>
+          <td><%= t.label :stub, 'Change Stub' %><br />
+              <%= t.file_field :stub %>
+          </td>
+        </tr>
+      </table>
 
-    <div>
-      <%= t.label :row %>
-      <%= t.text_field :row %>
-    </div>
-
-    <div>
-      <%= t.label :seat %>
-      <%= t.text_field :seat %>
-    </div>
-
-    <div>
-      <%= image_tag review.ticket.stub.url(:thumb) %><br />
-      <%= t.label :stub, 'Change Stub' %>
-      <%= t.file_field :stub %>
-    </div>
+      <table>
+        <tr>
+          <td><%= t.label :event_code %><br />
+              <%= t.text_field :event_code %>
+          </td>
+          <td>&nbsp;</td>
+          <td><%= t.label :section %><br />
+              <%= t.text_field :section %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= t.label :row %><br />
+              <%= t.text_field :row %>
+          </td>
+          <td>&nbsp;</td>
+          <td><%= t.label :seat %><br />
+              <%= t.text_field :seat %>
+          </td>
+        </tr>
+      </table>
+    </fieldset><br />
   <% end %>
 
-  <div>
-    <%= f.label :played_at, 'Day of the Concert' %>
-    <%= f.date_field :played_at %>
-  </div>
 
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
-
-  <div>
-    <%= f.label :rating %>
-    <%= f.select :rating, 1..5, include_blank: true %>
-  </div>
-
-  <div>
-    <%= f.label :user_id %>
-    <%= f.select :user_id, User.all.map {|u| [u.screen_name, u.id] }, include_blank: true %>
-  </div>
-
-  <%= f.submit 'Save' %>
+  <%= f.submit %>
 <% end %>

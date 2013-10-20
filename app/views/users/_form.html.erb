@@ -3,16 +3,12 @@
 <% end %>
 
 <%= form_for user, html: { multipart: true } do |f| %>
-  <div>
-    <%= f.label :screen_name %>
-    <%= f.text_field :screen_name %>
-  </div>
 
-  <div>
-    <%= image_tag user.avatar.url(:thumb) %><br />
-    <%= f.label :avatar, 'Change Avatar' %>
-    <%= f.file_field :avatar %>
-  </div>
-
+  <%= f.label :screen_name %><br />
+  <%= f.text_field :screen_name %><br /><br />
+  <%= image_tag user.avatar.url(:thumb) %><br />
+  <%= f.label :avatar, 'Change Avatar' %><br />
+  <%= f.file_field :avatar %><br /><br />
   <%= f.submit %>
+
 <% end %>

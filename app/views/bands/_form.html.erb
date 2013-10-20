@@ -3,26 +3,25 @@
 <% end %>
 
 <%= form_for band, html: { multipart: true } do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
 
-  <div>
-    <%= image_tag band.avatar.url(:thumb) %><br />
-    <%= f.label :avatar, 'Change Avatar' %>
-    <%= f.file_field :avatar %>
-  </div>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %><br />
+        <%= f.label :twitter, 'Twitter Account Name' %><br />
+        <%= f.text_field :twitter %><br />
+        <%= f.label :web, 'Website' %><br />
+        <%= f.text_field :web %>
+      </td>
+      <td>&nbsp;</td>
+      <td>
+        <%= image_tag band.avatar.url(:thumb) %><br />
+        <%= f.label :avatar, 'Change Avatar' %><br />
+        <%= f.file_field :avatar %>
+      </td>
+    </tr>
+    <tr><td colspan="3"><%= f.submit %></td></tr>
+  </table>
 
-  <div>
-    <%= f.label :twitter, 'Twitter Account Name' %>
-    <%= f.text_field :twitter %>
-  </div>
-
-  <div>
-    <%= f.label :web, 'Website' %>
-    <%= f.text_field :web %>
-  </div>
-
-  <%= f.submit %>
 <% end %>
