@@ -1,30 +1,26 @@
-<% review.errors.full_messages.each do |msg| %>
-  <p><%= msg %></p>
-<% end %>
-
 <%= form_for review do |f| %>
 
-    <%= f.label :title %><br />
+    <%= f.label :title %> <span class="error"><%= review.errors[:title].join(', ') %></span><br />
     <%= f.text_field :title %><br />
 
   <%= fields_for band do |b| %>
-    <%= b.label :name, 'Band' %><br />
+    <%= b.label :name, 'Band' %> <span class="error"><%= band.errors[:name].join(', ') %></span><br />
     <%= b.text_field :name %><br />
   <% end %>
 
   <%= f.label :venue %><br />
   <%= f.text_field :venue %><br />
 
-  <%= f.label :played_at, 'Day of the Concert' %><br />
+  <%= f.label :played_at, 'Day of the Concert' %> <span class="error"><%= review.errors[:played_at].join(', ') %></span><br />
   <%= f.date_field :played_at %><br />
 
-  <%= f.label :content %><br />
+  <%= f.label :content %> <span class="error"><%= review.errors[:content].join(', ') %></span><br />
   <%= f.text_area :content %><br />
 
-  <%= f.label :rating %><br />
-  <%= f.select :rating, 1..5, include_blank: true %><br />
+  <%= f.label :rating %> <span class="error"><%= review.errors[:rating].join(', ') %></span><br />
+  <span id="star"></span><%= f.hidden_field :rating %><br />
 
-  <%= f.label :user_id %><br />
+  <%= f.label :user_id %> <span class="error"><%= review.errors[:user_id].join(', ') %></span><br />
   <%= f.select :user_id, User.all.map {|u| [u.screen_name, u.id] }, include_blank: true %><br /><br />
 
   <%= f.fields_for :ticket do |t| %>
@@ -64,6 +60,15 @@
     </fieldset><br />
   <% end %>
 
-
   <%= f.submit %>
 <% end %>
+
+<script>
+  $('#star').raty({
+    path      : '/images',
+    score     : '<%= review.rating %>',
+    target    : '#review_rating',
+    targetType: 'number',
+    targetKeep: true
+  });
+</script>

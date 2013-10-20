@@ -6,7 +6,7 @@ class Review < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
   validates :rating, inclusion: { in: 1..5 }
-  validates :user, presence: true
+  validates :user_id, presence: true
   validates :played_at, presence: true
 
   accepts_nested_attributes_for :ticket

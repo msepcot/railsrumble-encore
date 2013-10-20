@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.band = Band.where(name: params[:band][:name].squish).first_or_initialize
 
-    @review.save ? redirect_to(@review) : render(:new)
+    @review.tap {|r| r.valid?; puts r.errors.inspect }.save ? redirect_to(@review) : render(:new)
   end
 
   def edit
@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
 private
 
   def review_params
+    params[:review][:ticket_attributes][:user_id] = params[:review][:user_id]
     params.require(:review).permit(
       :title, :content, :rating, :user_id, :played_at, :venue,
       ticket_attributes: [:id, :user_id, :event_code, :section, :row, :seat, :stub]

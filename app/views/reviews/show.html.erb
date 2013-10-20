@@ -7,10 +7,7 @@
 <div class="stars" data-number="<%= review.rating %>"><%= review.rating %> Stars</div>
 
 <% if review.ticket.stub.present? %>
-
-<h2>I was there!</h2>
-<%= image_tag review.ticket.stub(:medium) %>
-
+<p><%= link_to image_tag(review.ticket.stub(:medium), class: 'stub'), review.ticket.stub(:original), class: 'fancybox' %></p>
 <% end %>
 
 <p><%= link_to 'Edit Review', edit_review_path(review) %></p>
